@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>svg</title>
+    <script src="svg.js"></script>
+    <script src="svg.export.js"></script>
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="/pico/client.js"></script>
+    <script src="cal.js"></script>
+    <script src="menus.js"></script>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <style>
+     html,body {
+       background-color: white;
+       width: 100%;
+     }
+    </style>
+    <script>
+     pico.load('cal')
+     $(function() {
+       salles = $("#salles")
+       salles.buttonset()
+       $("#salle1").click(function( event ) {
+	   console.log("bla bouton")
+	   console.log(event)
+	 })
+     })
+    </script>
+  </head>
+  <body>
+
+    <div id="salles">
+      <input type="radio" name="radio" id="salle3"/><label for="salle3">salle 3</label>
+      <input type="radio" name="radio" id="salle1"/><label for="salle1">salle 1</label>
+    </div>
+
+    <div id="message"></div>
+    <div id="paper"></div>
+  </body>
+
+  <script>
+   $.getJSON("/cal.json", function(vjson) {
+     json = vjson
+     makeMenuJson("salles")
+     console.log(json)
+     console.log(json["salles"])
+   })
+   //json = $.getJSON("/cal.json")
+
+   draw = SVG('paper')
+   draw.width(4000,$('body').scrollHeight)
+   svge = draw.exportSvg()
+   pico.main = function() {}
+   dispCal = function(message){
+     console.log(message)
+     document.getElementById('message').innerHTML = message
+   }
+   cal.display(dispCal)     
+   drawSem1()
+  </script>
+
+</html>

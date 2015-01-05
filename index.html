@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>svg</title>
+    <script src="svg.js"></script>
+    <script src="svg.export.js"></script>
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="/pico/client.js"></script>
+    <script src="cal.js"></script>
+    <script src="menus.js"></script>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <style>
+     html,body {
+       background-color: white;
+       width: 100%;
+     }
+    </style>
+  </head>
+  <body>
+    <div id="menus"></div>
+    <div id="paper"></div>
+  </body>
+
+  <script>
+   $(function(){
+   pico.load('cal')
+   $.getJSON("/cal.json", function(vjson) {
+     json = vjson
+     makeMenuJson("salles")
+     makeMenuJson("models")
+     draw = SVG('paper')
+     draw.width(4000,$('body').scrollHeight)
+     // svge = draw.exportSvg()
+     pico.main = function() {}
+     dispCal = function(mess){
+       monthsVec = mess[0]
+       year = mess[1]
+       months = mess[2]
+       drawMonths(year, months, monthsVec)
+     }
+     cal.getMonths(2015, [1,2,3] , dispCal)     
+   })})
+
+
+  </script>
+
+</html>

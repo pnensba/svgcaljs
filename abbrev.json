@@ -1,0 +1,17 @@
+{
+    "abbrev": {
+	"s4": "salle 4",
+	"s3": "salle 3",
+	"s2": "salle 2",
+	"s1": "salle 1",
+	"pv": "plateau vidéo",
+	"sp": "studio photo",
+	"ss": "studio son",
+	"bt": "banc-titre",
+	
+	"sg": "son généralités",
+	"pg": "photo généralités",
+	"sg": "vidéo généralités",
+	
+    }
+}

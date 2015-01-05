@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>svg</title>
+    <script type="text/javascript" src="svg.js"></script>
+    <script type="text/javascript" src="svg.export.js"></script>
+    <script type="text/javascript" src="/pico/client.js"></script>
+    <script>   
+     //pico.load('example')
+     pico.load('cal')
+    </script>
+  </head>
+  <body>
+    <div id="message"></div>
+    <div id="paper"></div>
+  </body>
+
+  <script type="text/javascript">
+   
+   draw = SVG('paper')
+   rect = draw.rect(100, 100)
+   circle = draw.circle(200)
+
+   svge = draw.exportSvg({
+     exclude: function() {
+       return this.type == 'circle'
+     }
+   })
+
+
+   pico.main = function() {
+     /*
+     var displayMessage = function(message){
+       document.getElementById('message').innerHTML = message;
+     }
+     example.hello(svge, displayMessage);
+     */
+
+     var dispCal = function(message){
+       
+       document.getElementById('message').innerHTML = message;
+     }
+
+     cal.display(dispCal);
+   }
+
+  </script>
+
+
+</html>

@@ -1,0 +1,42 @@
+{
+    "abbrev": {
+	"jours": ["lundi","mardi","mercredi","jeudi","vendredi"],
+	"mois": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+
+	"salles": "toutes",
+	"s4": "salle 4",
+	"s3": "salle 3",
+	"s2": "salle 2",
+	"s1": "salle 1",
+	"pv": "plateau vidéo",
+	"sp": "studio photo",
+	"ss": "studio son",
+	"bt": "banc-titre",
+	
+	"models": "tous",
+	"son": "son",
+	"song": "son généralités",
+	"son1": "son niveau 1",
+
+	"pdv": "prise de vue",
+	"pdvg": "prise de vue généralités",
+	"pdv1": "prise de vue niveau 1",
+	"pdv2": "prise de vue niveau 2",
+
+	"vg": "vidéo généralités",
+	"v1": "vidéo niveau 1",
+	"v2": "vidéo niveau 2",
+
+	"interv": "tous"
+    },
+    "salles": ["salles","s4","s3","s2","s1","pv","sp","ss","bt"],
+    "models": ["models","song","son1","pdv","pdv1","pdv2","v1","v2"],
+    "interv": ["interv","jny","jft","jba"],
+    
+    "140105": {
+	"period": "am", 
+	"location": "s4",
+	"course": "sg",
+	"session": 1
+    }
+}
