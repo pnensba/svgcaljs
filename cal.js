@@ -11,9 +11,56 @@ function drawMonths(year, months, monthsVec) {
 function drawMonth(x, y, year, month, monthVec) {
   dispMonthLabel(x+(5*dim)/2, y, month)
   dispWeekDays(x+dim/2,40+y)
-  var m = new Month(x,60+y)
+  var m = new Month(x, 60+y, monthVec)
 }
 
+function Month(x, y, vec) {
+  this.weeks = []
+  for (var w=0; w < 4; w++) {
+    this.weeks.push(new Week(x, y+w*dim, vec[w]))
+  }
+} 
+
+function Week(x, y, vec) {
+  this.days = []
+  for (var d=0; d <5; d++) {
+    this.days.push(new Day(x+dim*d, y, vec[d]))
+  }
+}
+
+function Day(x, y, d) {
+  var self = this
+  console.log(d)
+  if (d>0){
+    this.group = draw.group()
+    this.r1 = new Cell(dim,dim3)
+    this.r2 = new Cell(dim,dim3,0,dim3)
+    this.r3 = new Cell(dim,dim3-10, 0, dim3*2)
+    this.group.add(this.r1.r)
+    this.group.add(this.r2.r)
+    this.group.add(this.r3.r)
+    this.group.translate(x,y)
+
+    dispDayLabel(x, y, d)
+    this.state = false
+    this.toggle = function () {
+      this.state = ! this.state
+
+      //cal.pressed(drawSem1, this.state)
+      // cal.pressed(this.state, drawSem1)
+
+      if (this.state) {
+	this.group.fill({ color: '#002' })
+      } else {
+	this.group.fill({ color: '#f02' })
+      }
+    }
+
+    this.group.click(function(){
+      self.toggle()
+    })
+  }
+}
 
 function Cell(w, h, x, y) {
   var self = this
@@ -37,39 +84,9 @@ function Cell(w, h, x, y) {
   })
 }
 
-function Day(x,y) {
-  var self = this
-  this.group = draw.group()
-  this.r1 = new Cell(dim,dim3)
-  this.r2 = new Cell(dim,dim3,0,dim3)
-  this.r3 = new Cell(dim,dim3-10, 0, dim3*2)
-  this.group.add(this.r1.r)
-  this.group.add(this.r2.r)
-  this.group.add(this.r3.r)
-  this.group.translate(x,y)
-
-  this.state = false
-  this.toggle = function () {
-    this.state = ! this.state
-
-    //cal.pressed(drawSem1, this.state)
-    // cal.pressed(this.state, drawSem1)
-
-    if (this.state) {
-      this.group.fill({ color: '#002' })
-    } else {
-      this.group.fill({ color: '#f02' })
-    }
-  }
-
-  this.group.click(function(){
-    self.toggle()
-  })
-
-}
 
 function dispMonthLabel(x,y, month) {
-  var text = draw.text(json.abbrev.mois[month]).move(x,y)
+  var text = draw.text(json.abbrev.mois[month-1]).move(x,y)
   text.font({
     family:   'Helvetica'
     , size:     20
@@ -89,17 +106,14 @@ function dispWeekDays(x,y) {
     })
   }
 }
-function Week(x,y) {
-  this.days = []
-  for (var d=0; d <5; d++) {
-    this.days.push(new Day(x+dim*d, y))
-  }
-}
 
-function Month(x,y) {
-  this.weeks = []
-  for (var w=0; w < 4; w++) {
-    this.weeks.push(new Week(x, y+w*dim))
-  }
-} 
+function dispDayLabel(x, y, d) {
+  var text = draw.text(d.toString()).move(x+dim/2,y)
+  text.font({
+    family:   'Helvetica'
+    , size:     36
+    , anchor:   'middle'
+    , leading:  '1.5em'
+  })
+}
 
