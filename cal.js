@@ -32,6 +32,7 @@ function Day(x, y, d) {
   var self = this
   console.log(d)
   if (d>0){
+    dispDayLabel(x, y, d)
     this.group = draw.group()
     this.r1 = new Cell(dim,dim3)
     this.r2 = new Cell(dim,dim3,0,dim3)
@@ -41,7 +42,6 @@ function Day(x, y, d) {
     this.group.add(this.r3.r)
     this.group.translate(x,y)
 
-    dispDayLabel(x, y, d)
     this.state = false
     this.toggle = function () {
       this.state = ! this.state
@@ -68,6 +68,8 @@ function Cell(w, h, x, y) {
   this.r = draw.rect(w-3,h)
   this.r.attr("stroke-width", 1)
   this.r.fill("white")
+  this.r.opacity(0.8)
+  //this.r.fill('rgba(255, 255, 255, 200)')
   this.r.translate(x,y)
 
   this.state = false
