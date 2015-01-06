@@ -18,8 +18,9 @@
     </style>
   </head>
   <body>
-    <div id="menus"></div>
-    <div id="paper"></div>
+    <div id="domaines"></div>
+    <div id="formations"></div>
+    <div id="planning"></div>
   </body>
 
   <script>
@@ -27,9 +28,11 @@
    pico.load('cal')
    $.getJSON("/cal.json", function(vjson) {
      json = vjson
-     makeMenuJson("salles")
-     makeMenuJson("models")
-     draw = SVG('paper')
+     menuDomaines()
+     makeMenuJsonAbbrev("formations")
+     makeMenuJsonAbbrev("salles")
+
+     draw = SVG('planning')
      draw.width(4000,$('body').scrollHeight)
      // svge = draw.exportSvg()
      pico.main = function() {}

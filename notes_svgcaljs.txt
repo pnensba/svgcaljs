@@ -1,1 +1,28 @@
 -*- mode:outline; coding:utf-8 -*-
+* questions
+** un seul fichier json pour tous les semestres
+- pb si fichier corrompu
++ permet de maintenir un format constant
++ permet de maintenir une table cohérente des formations et formateurs
+** un seul fichier json par semestre?
+- on doit maintenir un module de reparsing si on change de version/format
++ 
+** manips
+pouvoir faire une translation d'une session entière
+comment indiquer les conflits?
+** menus
+les 8 domaines
+
+* dates
+20140116
+* synchro json
+3 tables
+** dates
+** formations
+** formateurs
+** salles
+
+* gestion des couleurs
+code suivant les formations
+éventuellement dégradées suivant les formateurs
+différencier cours et TP
