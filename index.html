@@ -20,6 +20,7 @@
   <body>
     <div id="domaines"></div>
     <div id="formations"></div>
+    <div id="salles"></div>
     <div id="planning"></div>
   </body>
 
@@ -29,8 +30,6 @@
    $.getJSON("/cal.json", function(vjson) {
      json = vjson
      menuDomaines()
-     makeMenuJsonAbbrev("formations")
-     makeMenuJsonAbbrev("salles")
 
      draw = SVG('planning')
      draw.width(4000,$('body').scrollHeight)

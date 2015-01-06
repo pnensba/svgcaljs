@@ -11,7 +11,13 @@
 pouvoir faire une translation d'une session entière
 comment indiquer les conflits?
 ** menus
-les 8 domaines
+les 9 domaines
+
+vidéo
+labo photo
+prise de vue
+son
+
 
 * dates
 20140116

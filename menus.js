@@ -10,6 +10,7 @@ function menuDomaines(){
       var name = event.target.id
       console.log("domaine : "+name)
       menuFormations(name)
+      menuSalles(name)
     })
   }
   hmenu.buttonset()
@@ -29,25 +30,14 @@ function menuFormations(domaine){
 }
 
 
-function makeMenuJson(menuName){
-  hmenu = $('<div/>', {id: menuName}).appendTo($("#menus"))
-  for (var i=0; i<json[menuName].length; i++){
-    entryName = json[menuName][i]
-    hradio = $('<input/>', {type: "radio", name:menuName, id:entryName}).appendTo(hmenu)
-    hlabel = $('<label/>', {for: entryName}).appendTo(hmenu).html(entryName)
-    hradio.click(function( event ) {
-      console.log(event.target.id)
-    })
-  }
-  hmenu.buttonset()
-}
-
-function makeMenuJsonAbbrev(menuName){
-  hmenu = $('<div/>', {id: menuName}).appendTo($("#menus"))
-  for (var i=0; i<json[menuName].length; i++){
-    entryName = json[menuName][i]
+function menuSalles(domaine){
+  var name = "salles"
+  var hmenu = $('#'+name)
+  hmenu.empty()
+  for (var i=0; i<json[name][domaine].length; i++){
+    entryName = json[name][domaine][i]
     entryRealName = json["abbrev"][entryName]
-    hradio = $('<input/>', {type: "radio", name:menuName, id:entryName}).appendTo(hmenu)
+    hradio = $('<input/>', {type: "radio", name:name, id:entryName}).appendTo(hmenu)
     hlabel = $('<label/>', {for: entryName}).appendTo(hmenu).html(entryRealName)
     hradio.click(function( event ) {
       console.log(event.target.id)

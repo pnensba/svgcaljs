@@ -33,10 +33,8 @@
 		   "vidéo": ["v1","v2"]
 		  },
 
-    "salles": {"son": ["s4","ss", "pv"],
-	       "vidéo": ["s4","pv"],
-	       "impnum": ["s1","s2","s3"]
-	      },
+    "salles": ["s4","s3","s2","s1","pv","sp","ss","bt"],
+
     "intervenants": ["jny","jft","jba"],
     
     "140105": {
