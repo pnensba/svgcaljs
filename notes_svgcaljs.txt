@@ -1,4 +1,9 @@
 -*- mode:outline; coding:utf-8 -*-
+* installation
+tested with python2.7
+sudo pip install --upgrade google-api-python-client
+* google agenda
+bjmmkqoc7gdnjpsaok4chr0a0%40group.calendar.google.com
 * questions
 ** un seul fichier json pour tous les semestres
 - pb si fichier corrompu
